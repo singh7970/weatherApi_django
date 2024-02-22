@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .weather-container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ddd; /* Add border for a box effect */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+
+        /* Additional styling for the weather-data elements if needed */
+        .weather-data {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="weather-container">
+        <h1>Weather Information</h1>
+
+        {% for data in weather_data_list %}
+            <div class="weather-data">
+                <h2 class="city-name">{{ data.city_name }}</h2>
+                <p class="temperature">Temperature: {{ data.temperature }} &#8451;</p>
+                <p class="description">Description: {{ data.description }}</p>
+                <img class="weather-icon" src="{{ data.icon_url }}" alt="Weather Icon">
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
